@@ -1,9 +1,6 @@
 def solution(arr):
     app = 0
     
-    #if len(arr) >= 1000:
-    #    return arr
-    
     if len(arr) > 512:
             app = 1024-len(arr)
             

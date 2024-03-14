@@ -10,4 +10,5 @@ def solution(my_string):
     # num_list의 모든 원소의 합 계산
     for i in num_list:
         answer += int(i)
+    # sum(int(i) for i in num_list)
     return answer

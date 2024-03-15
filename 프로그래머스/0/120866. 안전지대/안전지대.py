@@ -12,18 +12,13 @@ def solution(board):
     # 위, 우측 위 대각선, 오른쪽, 오른쪽 아래 대각선, 아래, 좌측 아래 대각선, 왼쪽, 좌측 위 대각선
     direction = [[0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1], [-1, 0], [-1, 1]]
     
+    # 지뢰의 인덱스에서 각 방향 값을 더해, 그 값을 1로 채움 -> 위험지역이 1로 변경됨
     for l in land_arr:
-        # 지뢰 인덱스로 board 배열 접근
-        #print(board[l[0]][l[1]])
         for x, y in direction:
-            #print(l[0] + x, l[1] + y, len(board))
             if 0 <= (l[0] + x) < len(board) and 0 <= (l[1] + y) < len(board):
-                #print(l[0] + x, l[1] + y)
                 board[l[0] + x][l[1] + y] = 1
-    # 지뢰 인덱스로 board 배열 접근
-    #print(board[land_arr[0][0]][land_arr[0][1]])
     
-    
+    # 위험지역을 제외한 지역(원소가 0)을 찾아 개수를 센다. 
     for b in board:
         answer += b.count(0)   
     

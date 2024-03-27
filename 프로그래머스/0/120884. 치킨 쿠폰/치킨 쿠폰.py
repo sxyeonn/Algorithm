@@ -6,48 +6,19 @@ def solution(chicken):
     tmp = chicken
 
     while tmp > 0:
-        print("현재 시킨 치킨 수(tmp), 쿠폰 수, answer : ", tmp, coupon, answer)
         coupon += tmp % 10
         answer += tmp // 10
         tmp = tmp // 10
     
+    # coupon이 10개 이상이면 서비스 치킨 1마리를 시킬 수 있으므로, 
+    # 별도의 while문을 두어 처리
     coupon += tmp
-    print(coupon, answer)
     while coupon >= 10:
-    #if coupon >= 10:
+        # t는 현재 시킨 서비스 치킨 수
         t = coupon // 10
         answer += t
         coupon += t
         coupon -= t * 10
-    print(coupon, answer)
 
-    
-    """
-    print("--------")
-    tmp = tmp // 10
-    coupon += tmp % 10
-    answer += tmp // 10
-    print("현재 시킨 수(tmp), 쿠폰 수, answer : ", tmp, coupon, answer)
-    
-    
-    print("--------")
-    tmp = tmp // 10
-    coupon += tmp % 10
-    answer += tmp // 10
-    print("현재 시킨 수(tmp), 쿠폰 수, answer : ", tmp, coupon, answer)
-    
-    print("--------")
-    tmp = tmp // 10
-    coupon += tmp % 10
-    answer += tmp // 10
-    print("현재 시킨 수(tmp), 쿠폰 수, answer : ", tmp, coupon, answer)
-    
-    print("--------")
-    tmp = tmp // 10
-    coupon += tmp % 10
-    answer += tmp // 10
-    print("현재 시킨 수(tmp), 쿠폰 수, answer : ", tmp, coupon, answer)
-    """
-    
     
     return answer

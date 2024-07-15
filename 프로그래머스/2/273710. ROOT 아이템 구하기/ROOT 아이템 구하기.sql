@@ -1,0 +1,6 @@
+-- ROOT 아이템을 찾아 아이템 ID(ITEM_ID), 아이템 명(ITEM_NAME)을 출력
+-- 아이템 ID를 기준으로 오름차순
+SELECT t.ITEM_ID, i.ITEM_NAME
+FROM ITEM_TREE t JOIN ITEM_INFO i
+ON t.ITEM_ID = i.ITEM_ID
+WHERE t.PARENT_ITEM_ID IS NULL;

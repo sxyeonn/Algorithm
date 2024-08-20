@@ -1,19 +1,25 @@
 def solution(s, n):
     answer = ''
     lower_alpha = 'abcdefghijklmnopqrstuvwxyz'
-    upper_alpha = lower_alpha.upper()
+    
     for i in s:
-        # 소문자일 때
-        if i in lower_alpha:
-            idx = lower_alpha.index(i)
-            new_idx = (idx + n) % len(lower_alpha)
-            answer += lower_alpha[new_idx]
-        # 대문자일 때
-        elif i in upper_alpha:
-            idx = upper_alpha.index(i)
-            new_idx = (idx + n) % len(upper_alpha)
-            answer += upper_alpha[new_idx]
         # 공백일 때
-        elif i == " ":
+        if i == " ":
             answer += " "
+        
+        # 문자일 때(소문자, 대문자 모두)
+        else:
+            # 현재 문자를 소문자로 바꿔 위치를 찾음
+            idx = lower_alpha.index(i.lower())
+            # 새로운 위치 찾기
+            new_idx = (idx + n) % len(lower_alpha)
+            # 새로운 문자 찾기
+            tmp = lower_alpha[new_idx]
+            # 소문자일 때
+            if i in lower_alpha:
+                answer += tmp
+            # 대문자일 때
+            else:
+                answer += tmp.upper()
+        
     return answer

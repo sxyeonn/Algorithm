@@ -17,6 +17,7 @@ def solution(nums):
         for j in range(i+1, len(nums)):
             for k in range(j+1, len(nums)):
                 number = nums[i] + nums[j] + nums[k]
+                # 해당 수가 소수이면 count += 1
                 if find_num(number):
                     count += 1
 
